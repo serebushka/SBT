@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Menu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:black;
+    font-family:'Orbitron',sans-serif;
+    color:white;
+}
+
+/* Фон */
+body::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:
+      radial-gradient(circle,#00ffff33 0%,transparent 25%),
+      radial-gradient(circle,#ff00ff33 0%,transparent 25%),
+      radial-gradient(circle,#00ff8833 0%,transparent 25%);
+    animation:bgMove 15s linear infinite;
+}
+
+@keyframes bgMove{
+    0%{
+        transform:translate(-10%,-10%) rotate(0deg);
+    }
+
+    100%{
+        transform:translate(-10%,-10%) rotate(360deg);
+    }
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:500px;
+    padding:40px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:
+      0 0 30px #00ffff55,
+      0 0 60px #ff00ff33;
+    text-align:center;
+}
+
+.title{
+    font-size:32px;
+    margin-bottom:30px;
+    text-shadow:0 0 15px cyan;
+}
+
+.buttons{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+button{
+    padding:18px;
+    border:none;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    font-size:18px;
+    font-family:'Orbitron',sans-serif;
+    cursor:pointer;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:
+      inset 0 0 20px rgba(255,255,255,0.05),
+      0 0 20px rgba(0,255,255,0.2);
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:
+      0 0 30px cyan,
+      0 0 50px magenta;
+}
+
+.footer{
+    margin-top:25px;
+    opacity:0.7;
+    font-size:13px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="title">
+        МОЙ САЙТ
+    </div>
+
+    <div class="buttons">
+
+        <button onclick="location.href='page1.html'">
+            СТРАНИЦА 1
+        </button>
+
+        <button onclick="location.href='page2.html'">
+            СТРАНИЦА 2
+        </button>
+
+        <button onclick="location.href='page3.html'">
+            СТРАНИЦА 3
+        </button>
+
+        <button onclick="location.href='page4.html'">
+            СТРАНИЦА 4
+        </button>
+
+        <button onclick="location.href='page5.html'">
+            СТРАНИЦА 5
+        </button>
+
+    </div>
+
+    <div class="footer">
+        Neon Website UI
+    </div>
+
+</div>
+
+</body>
+</html>
