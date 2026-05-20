@@ -52,9 +52,12 @@ body::before{
 .container{
     position:relative;
     z-index:2;
-    width:90%;
-    max-width:500px;
-    padding:40px;
+    width:95%;
+    max-width:700px; /* Немного расширил, чтобы две колонки смотрелись свободно */
+    max-height:90vh; /* Ограничение по высоте, чтобы не вылезало за экран */
+    display:flex;
+    flex-direction:column;
+    padding:40px 30px;
     border-radius:30px;
     background:rgba(255,255,255,0.05);
     backdrop-filter:blur(15px);
@@ -67,43 +70,64 @@ body::before{
 
 .title{
     font-size:32px;
-    margin-bottom:30px;
+    margin-bottom:25px;
     text-shadow:0 0 15px cyan;
+    flex-shrink:0;
 }
 
+/* Сетка для красивого распределения 20 кнопок */
 .buttons{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    gap:15px;
+    overflow-y:auto; /* Скролл, если кнопок слишком много для экрана */
+    padding:10px 5px;
+}
+
+/* Прячем дефолтный некрасивый скроллбар, но оставляем возможность крутить */
+.buttons::-webkit-scrollbar {
+    width: 0px;
 }
 
 button{
-    padding:18px;
+    padding:16px 10px;
     border:none;
     border-radius:20px;
     background:rgba(255,255,255,0.08);
     color:white;
-    font-size:18px;
+    font-size:15px; /* Чуть уменьшил шрифт, чтобы длинные названия влезали в плитку */
     font-family:'Orbitron',sans-serif;
     cursor:pointer;
     transition:0.3s;
     border:1px solid rgba(255,255,255,0.1);
     box-shadow:
       inset 0 0 20px rgba(255,255,255,0.05),
-      0 0 20px rgba(0,255,255,0.2);
+      0 0 15px rgba(0,255,255,0.15);
+    text-transform: uppercase;
 }
 
 button:hover{
-    transform:scale(1.05);
+    transform:scale(1.03);
     box-shadow:
-      0 0 30px cyan,
-      0 0 50px magenta;
+      0 0 25px cyan,
+      0 0 40px magenta;
 }
 
 .footer{
-    margin-top:25px;
+    margin-top:20px;
     opacity:0.7;
     font-size:13px;
+    flex-shrink:0;
+}
+
+/* Адаптивность для мобилок: выстраиваем кнопки в одну колонку */
+@media (max-width: 550px) {
+    .buttons {
+        grid-template-columns: 1fr;
+    }
+    .container {
+        padding: 25px 20px;
+    }
 }
 
 </style>
@@ -118,25 +142,29 @@ button:hover{
 
     <div class="buttons">
 
-        <button onclick="location.href='page1.html'">
-            ТАЙМЕР ДО ЛЕТА
-        </button>
+        <!-- Исходные 5 кнопок -->
+        <button onclick="location.href='page1.html'">ТАЙМЕР ДО ЛЕТА</button>
+        <button onclick="location.href='page2.html'">ТАЙМЕР ДО ДР</button>
+        <button onclick="location.href='page3.html'">ТАЙМЕР ДО НГ</button>
+        <button onclick="location.href='page4.html'">ТАЙМЕР ДО КОНЦА ЛЕТА</button>
+        <button onclick="location.href='page5.html'">ТАЙМЕР ДО ???</button>
 
-        <button onclick="location.href='page2.html'">
-            ТАЙМЕР ДО ДР
-        </button>
-
-        <button onclick="location.href='page3.html'">
-            ТАЙМЕР ДО НГ
-        </button>
-
-        <button onclick="location.href='page4.html'">
-            ТАЙМЕР ДО КОНЦА ЛЕТА
-        </button>
-
-        <button onclick="location.href='page5.html'">
-            ТАЙМЕР ДО ???
-        </button>
+        <!-- Новые 15 кнопок -->
+        <button onclick="location.href='page6.html'">ТАЙМЕР ДО 6</button>
+        <button onclick="location.href='page7.html'">ТАЙМЕР ДО 7</button>
+        <button onclick="location.href='page8.html'">ТАЙМЕР ДО 8</button>
+        <button onclick="location.href='page9.html'">ТАЙМЕР ДО 9</button>
+        <button onclick="location.href='page10.html'">ТАЙМЕР ДО 10</button>
+        <button onclick="location.href='page11.html'">ТАЙМЕР ДО 11</button>
+        <button onclick="location.href='page12.html'">ТАЙМЕР ДО 12</button>
+        <button onclick="location.href='page13.html'">ТАЙМЕР ДО 13</button>
+        <button onclick="location.href='page14.html'">ТАЙМЕР ДО 14</button>
+        <button onclick="location.href='page15.html'">ТАЙМЕР ДО 15</button>
+        <button onclick="location.href='page16.html'">ТАЙМЕР ДО 16</button>
+        <button onclick="location.href='page17.html'">ТАЙМЕР ДО 17</button>
+        <button onclick="location.href='page18.html'">ТАЙМЕР ДО 18</button>
+        <button onclick="location.href='page19.html'">ТАЙМЕР ДО 19</button>
+        <button onclick="location.href='page20.html'">ТАЙМЕР ДО 20</button>
 
     </div>
 
